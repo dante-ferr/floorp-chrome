@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+:root {
+  --term-bg: #07070a;            /* Slightly darker rich Tokyo Night near-black background */
+  --term-active-bg: #1f2335;     /* Tokyo Night Storm active bg */
+  --term-green: #7dcfff;         /* Tokyo Night Cyan / selected accent */
+  --term-border: #7aa2f7;        /* Tokyo Night Blue border */
+  --term-text: #a9b1d6;          /* Tokyo Night main text */
+  --term-radius: 4px;
+
+  --tab-min-height: 24px !important; /* Native tab height compression (preserves vertical centering) */
+}
+
+/* Global Terminal Typography (Thin and elegant) */
+#sidebar-box,
+.tabbrowser-tab,
+#urlbar,
+.tab-label,
+#nav-bar,
+.tab-group-header,
+.tab-group-label,
+.tab-group-title,
+.tab-group-text {
+  font-family: "FiraCode Nerd Font", "Iosevka Nerd Font", monospace !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.2px !important;
+}
+
+/* Global Proton Reset to prevent double bounding boxes */
+.tab-background,
+.tabbrowser-tab .tab-background,
+.tabbrowser-tab[selected="true"] .tab-background {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Sidebar/Vertical Tabs Container background override */
+#TabsToolbar,
+#sidebar-box,
+#sidebar,
+#tabbrowser-tabs,
+.tabbrowser-arrowscrollbox {
+  background-color: var(--term-bg) !important;
+}
+
+/* Navigation Bar and Top Toolbars - cohesive Tokyo Night styling */
+#navigator-toolbox {
+  background-color: #16161e !important; /* Tokyo Night Night background */
+  border-bottom: 1px solid #1f2335 !important;
+}
+
+#nav-bar {
+  background-color: #16161e !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+#PersonalToolbar {
+  background-color: #16161e !important;
+}
+
+/* URL Bar Styling - Tokyo Night Storm background to pop against #nav-bar */
+#urlbar,
+#urlbar-background,
+#urlbar-input-container {
+  background-color: #1f2335 !important;
+  color: #c0caf5 !important;
+  border-radius: var(--term-radius) !important;
+}
+
+#urlbar {
+  border: 1px solid #3b4261 !important;
+}
+
+#urlbar[focused="true"] {
+  border: 1px solid #7aa2f7 !important;
+  box-shadow: 0 0 4px rgba(122, 162, 247, 0.4) !important;
+}
+
+/* Gentle vertical compact margin for normal tabs */
+.tabbrowser-tab:not([pinned]) {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+/* Normal Tabs Styling */
+.tabbrowser-tab:not([pinned]) {
+  color: var(--term-text) !important;
+  border: 1px solid transparent !important;
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] {
+  background: var(--term-active-bg) !important;
+  color: var(--term-green) !important;
+  border: 1px solid var(--term-border) !important;
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-label {
+  font-weight: 700 !important; /* Force bold on the actual label element */
+}
+
+.tabbrowser-tab:not([pinned]) .tab-label::before {
+  content: "> " !important;
+  color: transparent !important;
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-label::before {
+  color: var(--term-green) !important;
+}
+
+/* Monochromatic unselected tab icons (subtle blue-purple/lavender Tokyo Night tint) */
+.tabbrowser-tab:not([selected="true"]) .tab-icon-image,
+.tabbrowser-tab:not([selected="true"]) .tab-throbber {
+  filter: grayscale(100%) sepia(100%) hue-rotate(220deg) saturate(140%) brightness(85%) opacity(70%) !important;
+  transition: filter 0.15s ease, opacity 0.15s ease !important;
+}
+
+/* Tab Groups Hierarchy - Crisp White Text for All Group Titles */
+.tab-group,
+.tab-group-header,
+.tab-group-label,
+.tab-group-title,
+.tab-group-text {
+  color: #ffffff !important;
+}
+
+/* Tab Group Specific Tokyo Night Color Mappings (Bypasses variable caching via color-mix) */
+/* Grey */
+.tab-group[color="grey"], .tab-group-header[color="grey"], tab-group[color="grey"], tab-group-header[color="grey"], .tab-group-label[color="grey"], .tab-group-title[color="grey"], .tab-group-text[color="grey"] {
+  background: color-mix(in srgb, #565f89 20%, transparent) !important;
+  outline: 1px solid #565f89 !important;
+}
+
+/* Blue */
+.tab-group[color="blue"], .tab-group-header[color="blue"], tab-group[color="blue"], tab-group-header[color="blue"], .tab-group-label[color="blue"], .tab-group-title[color="blue"], .tab-group-text[color="blue"] {
+  background: color-mix(in srgb, #7aa2f7 20%, transparent) !important;
+  outline: 1px solid #7aa2f7 !important;
+}
+
+/* Red */
+.tab-group[color="red"], .tab-group-header[color="red"], tab-group[color="red"], tab-group-header[color="red"], .tab-group-label[color="red"], .tab-group-title[color="red"], .tab-group-text[color="red"] {
+  background: color-mix(in srgb, #f7768e 20%, transparent) !important;
+  outline: 1px solid #f7768e !important;
+}
+
+/* Green */
+.tab-group[color="green"], .tab-group-header[color="green"], tab-group[color="green"], tab-group-header[color="green"], .tab-group-label[color="green"], .tab-group-title[color="green"], .tab-group-text[color="green"] {
+  background: color-mix(in srgb, #9ece6a 20%, transparent) !important;
+  outline: 1px solid #9ece6a !important;
+}
+
+/* Yellow */
+.tab-group[color="yellow"], .tab-group-header[color="yellow"], tab-group[color="yellow"], tab-group-header[color="yellow"], .tab-group-label[color="yellow"], .tab-group-title[color="yellow"], .tab-group-text[color="yellow"] {
+  background: color-mix(in srgb, #e0af68 20%, transparent) !important;
+  outline: 1px solid #e0af68 !important;
+}
+
+/* Purple */
+.tab-group[color="purple"], .tab-group-header[color="purple"], tab-group[color="purple"], tab-group-header[color="purple"], .tab-group-label[color="purple"], .tab-group-title[color="purple"], .tab-group-text[color="purple"] {
+  background: color-mix(in srgb, #bb9af7 20%, transparent) !important;
+  outline: 1px solid #bb9af7 !important;
+}
+
+/* Pink */
+.tab-group[color="pink"], .tab-group-header[color="pink"], tab-group[color="pink"], tab-group-header[color="pink"], .tab-group-label[color="pink"], .tab-group-title[color="pink"], .tab-group-text[color="pink"] {
+  background: color-mix(in srgb, #bb9af7 20%, transparent) !important;
+  outline: 1px solid #bb9af7 !important;
+}
+
+/* Teal */
+.tab-group[color="teal"], .tab-group-header[color="teal"], tab-group[color="teal"], tab-group-header[color="teal"], .tab-group-label[color="teal"], .tab-group-title[color="teal"], .tab-group-text[color="teal"] {
+  background: color-mix(in srgb, #73daca 20%, transparent) !important;
+  outline: 1px solid #73daca !important;
+}
+
+/* Cyan */
+.tab-group[color="cyan"], .tab-group-header[color="cyan"], tab-group[color="cyan"], tab-group-header[color="cyan"], .tab-group-label[color="cyan"], .tab-group-title[color="cyan"], .tab-group-text[color="cyan"] {
+  background: color-mix(in srgb, #7dcfff 20%, transparent) !important;
+  outline: 1px solid #7dcfff !important;
+}
+
+/* Orange */
+.tab-group[color="orange"], .tab-group-header[color="orange"], tab-group[color="orange"], tab-group-header[color="orange"], .tab-group-label[color="orange"], .tab-group-title[color="orange"], .tab-group-text[color="orange"] {
+  background: color-mix(in srgb, #ff9e64 20%, transparent) !important;
+  outline: 1px solid #ff9e64 !important;
+}
+
+.tab-group-sub-container {
+  margin-inline-start: 12px !important;
+}
+
+/* Collapsed Sidebar Symmetry (General) */
+[collapsed="true"] .tab-icon-image,
+[collapsed="true"] .tab-throbber {
+  margin-inline-end: 0 !important;
+}
+
+[collapsed="true"] .tabbrowser-tab,
+[collapsed="true"] .tab-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Pinned Tabs Grid Customization (Restored fully to original working state) */
+#pinned-tabs-container,
+#vertical-pinned-tabs-container,
+.pinned-tabs-container,
+#pinned-tabs-container-inner,
+#pinned-tabs-bar {
+  gap: 0px !important;
+  column-gap: 0px !important;
+  row-gap: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+#pinned-tabs-container,
+#vertical-pinned-tabs-container {
+  margin-top: 8px !important; /* Elegant spacing above the pinned tabs container */
+}
+
+.tabbrowser-tab[pinned] {
+  margin: 0px !important;
+  padding: 0px !important; /* Remove outer tab margins/paddings that create grid gap */
+  border: 1px solid transparent !important;
+}
+
+/* Centering the icon horizontally and vertically within the tab's internal boundaries */
+.tabbrowser-tab[pinned] .tab-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.tabbrowser-tab[pinned] .tab-icon-image,
+.tabbrowser-tab[pinned] .tab-throbber {
+  align-self: center !important;
+  margin: 0px !important;
+  vertical-align: middle !important;
+}
+
+/* Highlight selected pinned tab */
+.tabbrowser-tab[pinned][selected="true"] {
+  background: var(--term-active-bg) !important;
+  color: var(--term-green) !important;
+  border: 1px solid var(--term-border) !important;
+  border-radius: var(--term-radius) !important;
+  font-weight: 700 !important;
+}

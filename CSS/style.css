@@ -1,0 +1,180 @@
+:root {
+--term-bg-rgb: 8,3,3;
+--term-green: #5E60B3;
+--term-border-rgb: 94,96,179;
+--term-text: #F0A17D;
+--term-active-bg-rgb: 155,90,59;
+
+--term-bg: rgba(var(--term-bg-rgb), 0.65);
+--term-border: rgba(var(--term-border-rgb), 0.25);
+--term-active-bg: rgba(var(--term-active-bg-rgb), 0.85);
+--term-radius: 4px;
+
+/* Wallust Tab Group Colors Mapping */
+/* Grey */
+--tab-group-color-grey: #9B5A3B !important;
+--tab-group-color-grey-invert: #9B5A3B !important;
+--tab-group-color-grey-pale: #9B5A3B !important;
+
+/* Blue */
+--tab-group-color-blue: #7089D9 !important;
+--tab-group-color-blue-invert: #7089D9 !important;
+--tab-group-color-blue-pale: #7089D9 !important;
+
+/* Red */
+--tab-group-color-red: #824457 !important;
+--tab-group-color-red-invert: #824457 !important;
+--tab-group-color-red-pale: #824457 !important;
+
+/* Green */
+--tab-group-color-green: #5E60B3 !important;
+--tab-group-color-green-invert: #5E60B3 !important;
+--tab-group-color-green-pale: #5E60B3 !important;
+
+/* Yellow */
+--tab-group-color-yellow: #FC8E75 !important;
+--tab-group-color-yellow-invert: #FC8E75 !important;
+--tab-group-color-yellow-pale: #FC8E75 !important;
+
+/* Purple */
+--tab-group-color-purple: #9C6D3D !important;
+--tab-group-color-purple-invert: #9C6D3D !important;
+--tab-group-color-purple-pale: #9C6D3D !important;
+
+/* Pink */
+--tab-group-color-pink: #9C6D3D !important;
+--tab-group-color-pink-invert: #9C6D3D !important;
+--tab-group-color-pink-pale: #9C6D3D !important;
+
+/* Teal */
+--tab-group-color-teal: #A05F40 !important;
+--tab-group-color-teal-invert: #A05F40 !important;
+--tab-group-color-teal-pale: #A05F40 !important;
+
+/* Cyan */
+--tab-group-color-cyan: #A05F40 !important;
+--tab-group-color-cyan-invert: #A05F40 !important;
+--tab-group-color-cyan-pale: #A05F40 !important;
+
+/* Orange */
+--tab-group-color-orange: #824457 !important;
+--tab-group-color-orange-invert: #824457 !important;
+--tab-group-color-orange-pale: #824457 !important;
+}
+
+/* Global Terminal Typography */
+#sidebar-box,
+.tabbrowser-tab,
+#urlbar,
+.tab-label,
+#nav-bar,
+.tab-group-header,
+.tab-group-label,
+.tab-group-title,
+.tab-group-text {
+font-family: "FiraCode Nerd Font", "Iosevka Nerd Font", monospace !important;
+font-size: 13px !important;
+font-weight: 700 !important;
+}
+
+/* Global Proton Reset to prevent double bounding boxes */
+.tab-background,
+.tabbrowser-tab .tab-background,
+.tabbrowser-tab[selected="true"] .tab-background {
+background: transparent !important;
+box-shadow: none !important;
+border: none !important;
+outline: none !important;
+}
+
+/* Normal Tabs Styling */
+.tabbrowser-tab:not([pinned]) {
+  color: var(--term-text) !important;
+  border: 1px solid transparent !important;
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] {
+  background: var(--term-active-bg) !important;
+  color: var(--term-green) !important;
+  border: 1px solid var(--term-border) !important;
+}
+
+.tabbrowser-tab:not([pinned]) .tab-label::before {
+  content: "> " !important;
+  color: transparent !important;
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-label::before {
+  color: var(--term-green) !important;
+}
+
+/* Tab Groups Hierarchy */
+.tab-group,
+.tab-group-header,
+.tab-group-label,
+.tab-group-title,
+.tab-group-text {
+  background: color-mix(in srgb, var(--tab-group-color) 85%, transparent) !important;
+  outline: 1px solid var(--tab-group-color) !important;
+  color: var(--term-text) !important;
+}
+
+
+
+.tab-group-sub-container {
+margin-inline-start: 12px !important;
+}
+
+/* Collapsed Sidebar Symmetry (General) */
+[collapsed="true"] .tab-icon-image,
+[collapsed="true"] .tab-throbber {
+margin-inline-end: 0 !important;
+}
+
+[collapsed="true"] .tabbrowser-tab,
+[collapsed="true"] .tab-content {
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+}
+
+/* Pinned Tabs Grid Customization */
+#pinned-tabs-container,
+#vertical-pinned-tabs-container,
+.pinned-tabs-container,
+#pinned-tabs-container-inner,
+#pinned-tabs-bar {
+  gap: 0px !important;
+  column-gap: 0px !important;
+  row-gap: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.tabbrowser-tab[pinned] {
+  margin: 0px !important;
+  padding: 0px !important; /* Remove outer tab margins/paddings that create grid gap */
+  border: 1px solid transparent !important;
+}
+
+/* Centering the icon horizontally and vertically within the tab's internal boundaries */
+.tabbrowser-tab[pinned] .tab-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.tabbrowser-tab[pinned] .tab-icon-image,
+.tabbrowser-tab[pinned] .tab-throbber {
+  align-self: center !important;
+  margin: 0px !important;
+  vertical-align: middle !important;
+}
+
+/* Highlight selected pinned tab */
+.tabbrowser-tab[pinned][selected="true"] {
+  background: var(--term-active-bg) !important;
+  color: var(--term-green) !important;
+  border: 1px solid var(--term-border) !important;
+  border-radius: var(--term-radius) !important;
+}
