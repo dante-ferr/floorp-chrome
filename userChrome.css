@@ -8,7 +8,8 @@
   --term-text: #a9b1d6;          /* Tokyo Night main text */
   --term-radius: 4px;
 
-  --tab-min-height: 24px !important; /* Native tab height compression (preserves vertical centering) */
+--tab-min-height: 22px !important;
+    /* Native tab height compression (preserves vertical centering) */
 }
 
 /* Global Terminal Typography (Thin and elegant) */
@@ -25,6 +26,7 @@
   font-size: 12px !important;
   font-weight: 400 !important;
   letter-spacing: -0.2px !important;
+  border-radius: var(--term-radius) !important;
 }
 
 /* Global Proton Reset to prevent double bounding boxes */
@@ -38,39 +40,80 @@
 }
 
 /* Sidebar/Vertical Tabs Container background override */
-#TabsToolbar,
 #sidebar-box,
-#sidebar,
-#tabbrowser-tabs,
-.tabbrowser-arrowscrollbox {
+#sidebar {
   background-color: var(--term-bg) !important;
 }
 
-/* Navigation Bar and Top Toolbars - cohesive Tokyo Night styling */
-#navigator-toolbox {
-  background-color: #16161e !important; /* Tokyo Night Night background */
-  border-bottom: 1px solid #1f2335 !important;
+#TabsToolbar,
+#tabbrowser-tabs {
+  background-color: var(--term-bg) !important;
 }
 
-#nav-bar {
-  background-color: #16161e !important;
+.tabbrowser-arrowscrollbox,
+.scrollbox-clip,
+.arrowscrollbox-scrollbox,
+#tabbrowser-arrowscrollbox-container {
+  background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-#PersonalToolbar {
-  background-color: #16161e !important;
+/* 💻 Custom Tokyo Night cmatrix-like digital rain */
+#tabbrowser-tabs {
+  background-image: 
+    linear-gradient(to bottom, var(--term-bg) 0%, rgba(7, 7, 10, 0.85) 30%, rgba(7, 7, 10, 0.3) 65%, rgba(7, 7, 10, 0.05) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><style>.stream{font-family:'FiraCode Nerd Font','Iosevka Nerd Font',monospace;font-size:8px;font-weight:bold;fill:%237dcfff;opacity:0.20;white-space:nowrap;}.stream-purple{fill:%23bb9af7;opacity:0.16;}.stream-blue{fill:%237aa2f7;opacity:0.12;}</style><text x='-250' y='10%' class='stream'><animate attributeName='x' values='-250;100%' dur='3.2s' repeatCount='indefinite'/>❯❯❯_SYS_RUN_0101 // MAIN_INIT_OK // 0101</text><text x='100%' y='20%' class='stream stream-purple'><animate attributeName='x' values='100%;-280' dur='4.5s' repeatCount='indefinite'/>[CONNECTING...] 109.82.0.1 [PORT_80_ACTIVE]</text><text x='-260' y='30%' class='stream stream-blue'><animate attributeName='x' values='-260;100%' dur='2.8s' repeatCount='indefinite'/>PACKET_RECV_⚡ PACKET_RECV_⚡ PACKET_RECV_⚡</text><text x='100%' y='40%' class='stream'><animate attributeName='x' values='100%;-250' dur='3.8s' repeatCount='indefinite'/>ANTIGRAV_ACTIVE // MAIN_AI_CORE_LOAD</text><text x='-240' y='50%' class='stream stream-purple'><animate attributeName='x' values='-240;100%' dur='3.5s' repeatCount='indefinite'/>DECRYPT_9082 DECRYPT_9082 DECRYPT_9082</text><text x='100%' y='60%' class='stream stream-blue'><animate attributeName='x' values='100%;-260' dur='4.2s' repeatCount='indefinite'/>SYS_STABLE_OK [BUFFER_SYNC_VERIFIED]</text><text x='-250' y='70%' class='stream'><animate attributeName='x' values='-250;100%' dur='2.5s' repeatCount='indefinite'/>❯❯_BUFFER_SWEEP ❯❯_BUFFER_SWEEP ❯❯_BUFFER_SWEEP</text><text x='100%' y='80%' class='stream stream-purple'><animate attributeName='x' values='100%;-250' dur='3.9s' repeatCount='indefinite'/>SECURE_PORT_80 // [STATUS: ENCRYPTED]</text><text x='-260' y='90%' class='stream stream-blue'><animate attributeName='x' values='-260;100%' dur='3.1s' repeatCount='indefinite'/>MAINFRAME_DATA MAINFRAME_DATA MAINFRAME_DATA</text><text x='100%' y='97%' class='stream'><animate attributeName='x' values='100%;-250' dur='4.8s' repeatCount='indefinite'/>❯❯_SYS_SH_LOAD // MAIN_MAIN_DECRYPT</text></svg>") !important;
+  background-position: left bottom !important; /* Perfect left-anchor alignment! */
+  background-repeat: no-repeat, no-repeat !important; /* No horizontal repeating! */
+  background-size: 100% 100%, 100% 100% !important; /* Stretch both the gradient and the SVG to cover 100% height! */
+  background-origin: border-box !important;
+  background-clip: border-box !important;
 }
 
-/* URL Bar Styling - Tokyo Night Storm background to pop against #nav-bar */
+/* Navigation Bar and Top Toolbars - cohesive Tokyo Night styling with vertical binary sweep */
+#navigator-toolbox {
+  background-color: #16161e !important; /* Tokyo Night Night background */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><style>.bin{font-family:'FiraCode Nerd Font','Iosevka Nerd Font',monospace;font-size:8px;font-weight:bold;fill:%237dcfff;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;opacity:0.28;}.bin-blue{fill:%237aa2f7;opacity:0.20;}</style><text x='10' y='-40' class='bin'><animate attributeName='y' values='-40;40' dur='4s' repeatCount='indefinite'/>0101</text><text x='25' y='-40' class='bin bin-blue'><animate attributeName='y' values='-40;40' dur='6s' repeatCount='indefinite'/>1100</text><text x='40' y='-40' class='bin'><animate attributeName='y' values='-40;40' dur='3.5s' repeatCount='indefinite'/>1010</text><text x='55' y='-40' class='bin bin-blue'><animate attributeName='y' values='-40;40' dur='5.5s' repeatCount='indefinite'/>0110</text><text x='70' y='-40' class='bin'><animate attributeName='y' values='-40;40' dur='4.5s' repeatCount='indefinite'/>1001</text><text x='85' y='-40' class='bin bin-blue'><animate attributeName='y' values='-40;40' dur='5s' repeatCount='indefinite'/>0011</text></svg>") !important;
+  background-repeat: repeat-x !important;
+  background-size: 100px 40px !important;
+  background-position: left center !important; /* Perfect left-anchor alignment! */
+  background-origin: border-box !important;
+  background-clip: border-box !important;
+  border-bottom: 1px solid #1f2335 !important;
+}
+
+#nav-bar,
+#PersonalToolbar,
+#nav-bar-customization-target,
+#nav-bar-overflow-button {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* URL Bar Styling - 100% Transparent in all active/focus states to show binary flow perfectly */
 #urlbar,
 #urlbar-background,
-#urlbar-input-container {
-  background-color: #1f2335 !important;
+#urlbar-container,
+#urlbar-input-container,
+.urlbar-input-box,
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar[focused="true"] #urlbar-background,
+#urlbar[open] > #urlbar-background {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
   color: #c0caf5 !important;
+}
+
+#urlbar-input-container {
   border-radius: var(--term-radius) !important;
 }
+
+
 
 #urlbar {
   border: 1px solid #3b4261 !important;
@@ -251,4 +294,61 @@
   border: 1px solid var(--term-border) !important;
   border-radius: var(--term-radius) !important;
   font-weight: 700 !important;
+}
+
+/* ==========================================
+   👾 ELITE HACKER TERMINAL CUSTOM EFFECTS 👾
+   ========================================== */
+
+/* 1. Vintage CRT Warmup Flicker on Tab Switch */
+@keyframes term-flicker {
+  0% { opacity: 0.5; filter: brightness(1.5) contrast(1.2); }
+  15% { opacity: 0.9; filter: brightness(0.8); }
+  30% { opacity: 0.7; filter: brightness(1.3); }
+  45% { opacity: 0.95; filter: brightness(0.9); }
+  60% { opacity: 0.85; filter: brightness(1.1); }
+  100% { opacity: 1; filter: none; }
+}
+
+.tabbrowser-tab[selected="true"] {
+  animation: term-flicker 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* 2. Pulse-Blinking Retro Terminal Cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-label::after {
+  content: " ▋" !important;
+  color: var(--term-green) !important;
+  animation: cursor-blink 1.2s step-start infinite !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/* 4. URL Bar Command Shell Prompt */
+#urlbar-input-container::before {
+  content: "sys_exec >" !important;
+  font-family: "FiraCode Nerd Font", "Iosevka Nerd Font", monospace !important;
+  font-size: 11px !important;
+  color: var(--term-border) !important; /* Matching blue/purple border */
+  font-weight: 700 !important;
+  padding-left: 8px !important;
+  padding-right: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  opacity: 0.8 !important;
+}
+
+/* 5. Phosphor Neon Border & Text Glow */
+.tabbrowser-tab:not([pinned])[selected="true"] {
+  box-shadow: 0 0 10px rgba(122, 162, 247, 0.25), inset 0 0 4px rgba(125, 207, 255, 0.15) !important;
+  text-shadow: 0 0 3px rgba(125, 207, 255, 0.5) !important;
+}
+
+#urlbar[focused="true"] {
+  box-shadow: 0 0 12px rgba(122, 162, 247, 0.35) !important;
 }
